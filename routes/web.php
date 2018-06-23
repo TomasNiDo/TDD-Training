@@ -11,9 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ArticlesController@index');
+Route::post('articles', 'ArticlesController@store');
+Route::get('articles/{article}', 'ArticlesController@show');
+Route::get('articles/{article}/edit', 'ArticlesController@edit');
+Route::get('articles/create', 'ArticlesController@create');
+Route::patch('articles/{article}', 'ArticlesController@update');
+Route::delete('articles/{article}', 'ArticlesController@destroy');
 
 Auth::routes();
 
