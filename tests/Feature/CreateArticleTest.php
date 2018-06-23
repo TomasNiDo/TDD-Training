@@ -11,6 +11,15 @@ class CreateArticleTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
+    public function a_user_can_see_the_create_page()
+    {
+        $user = factory('App\User')->create();
+
+        $this->get('/articles/create')
+            ->assertSee('Create Article');
+    }
+
+    /** @test */
     public function a_user_can_post_an_article()
     {
         // Given nga naa tay user ug nag create sya ug article
